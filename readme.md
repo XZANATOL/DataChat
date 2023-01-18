@@ -4,12 +4,16 @@ A self-host personal chat app that groups some basic features of Whatsapp and Di
 
 ### Usage
 
-The project is a custom built interface to visualize the data on top of [PocketBase](pocketbase.io/) project, So it needs to be installed first:
+The project is a custom built interface to visualize the data on top of [PocketBase](https://pocketbase.io/) project, So it needs to be installed first:
 
 1) Download the compiled project depending on your os from [here](https://github.com/pocketbase/pocketbase/releases) & place it in the project root directory.
 2) Run `pocketbase migrate` to apply data base migrations. A 'pb_data' folder will be created.
 3) Run `pocketbase serve` to start the server.
 4) OPTIONAL: you can append `--http=<ip_addr>:<port>` to serve the application on a custom IP address if you own it.
+5) Add a user in the users table.
+6) Change the credentials in `./pb_public/js/xzanspace.js` at lines 15 & 16.
+7) Add whatever channels you want on line 2.
+8) You're all set, head to the hosted IP address & enter the same IP address in the prompt.
 
 ### How It Started
 
@@ -23,7 +27,7 @@ For the cons:
 1) **Discord:** you need to be online to access your data.
 2) **Whatsapp:** you don't have the channels feature to organize your data which can makes alot of notes slip by if you're someone who frequently takes notes throughout the day.
 
-having to deal with the cons, things tends to get a bit annoying. So I decided to build up the best of the two worlds. A chat app that has enables you to organize data, can be accessed offline and put it online (on a local network) whenever I want to, and for better flexibility, I have to be able to host it from mobile.
+Having to deal with the cons, things tends to get a bit annoying. So I decided to build up the best of the two worlds. A chat app that has enables you to organize data, can be accessed offline and put it online (on a local network) whenever I want to, and for better flexibility, I have to be able to host it from mobile.
 
 ### How It's Built
 
