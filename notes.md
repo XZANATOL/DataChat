@@ -7,6 +7,10 @@ These are the common methods to send a HTTP request.
 * Fetch obligates you to manaully serialize your POST payload before sending the request, which can introduce some un-accounted edge cases when uploading files.
 * XMLHttpRequest can automate this part as you can directly pass on a file object.
 
+### Drag and Drop (JS)
+
+* To get the `drop` event working, you first have to `preventDefault()` both `dragover` & `dragleave` events to implement your own logic.
+
 ### PocketBase Users
 
 PocketBase has 2 users tables. One for admins & the other is for auth users.
@@ -24,11 +28,13 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 * (1) Add Code-Block support in the `textProcessor` function.
 * (2) Add the support to select the whole block on triple click. (Idea inspired from [Advent of Code](https://xzansite.cyclic.app/blog/Programming/Events/Advent%20of%20Code%202022))
 * Play abit with the realtime API that pocketBase offers. (More docs reading)
+* Add a loading div when sending a message (suitable when messages take a while to be sent and loaded on the UI)
+* Add facicon to the app.
 
 
 **Done**
 * Add the ability to Drag&Drop files. (mostly gonna use the `drop` event in JS)<br>
-Did use the `drop` event, but learned along the way that I've to `preventDefault()` the events of `dragover` & `dragleave`.
+Did use the `drop` event, and learned along the way that I've to `preventDefault()` the events of `dragover` & `dragleave`.
 
 
 **(low priority)**
