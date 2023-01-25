@@ -13,7 +13,7 @@ The project is a custom built interface to visualize the data on top of [PocketB
 5) Add a user in the users table.
 6) Change the credentials in `./pb_public/js/xzanspace.js` at lines 15 & 16.
 7) Add whatever channels you want on line 2.
-8) You're all set, head to the hosted IP address & enter the same IP address in the prompt.
+8) You're all set! Head to the hosted IP address.
 
 ### How It Started
 

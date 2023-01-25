@@ -1,4 +1,4 @@
-const server = prompt("Enter DB address:")
+const server = window.location.host
 const channels = ["General"]
 const collectionName = "xzanspace"
 const channelSelect = document.querySelector(".channel")
@@ -221,8 +221,9 @@ document.addEventListener("dblclick", (e) =>{
 	}
 })
 
-// Keyboard shortcuts
+// Desktop Options
 if(window.screen.width >= 1024){
+	// Keyboard shortcuts
 	const submit = document.querySelector("#submit")
 	document.addEventListener("keydown", (e) => {
 		if (!e.shiftKey && e.key == "Enter"){
@@ -239,5 +240,18 @@ if(window.screen.width >= 1024){
 			e.preventDefault()
 			textareaInput.focus()
 		}
+	})
+
+	// Drag & Drop
+	document.addEventListener("dragover", (e) => {
+		e.preventDefault()
+	})
+	document.addEventListener("dragleave", (e) => {
+		e.preventDefault()
+	})
+	document.addEventListener("drop", (e) => {
+		e.preventDefault()
+		const filesInput = document.querySelector(".icon-wrapper").querySelector("input")
+		filesInput.files = e.dataTransfer.files
 	})
 }

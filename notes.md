@@ -1,4 +1,4 @@
-Notes taken about the methods and approaches I tired while building the project.
+Notes taken about the methods and approaches I tried while building the project.
 
 ### XMLHttpRequest & fetch Requests (JS)
 
@@ -13,13 +13,24 @@ PocketBase has 2 users tables. One for admins & the other is for auth users.
 
 ### UX
 
-**Keyboard Shortcuts**
-Usually the keyboard shortcuts are only active on desktop devices. This can be achieved by checking the screen-width in JS using `window.screen.width`
+**Keyboard Shortcuts**<br>
+Usually the keyboard shortcuts are only active on desktop devices. This can be achieved by checking the screen-width in JS using `window.screen.width`.
 
 ### To-Do
 
-* Add the ability to paste in images. (Spending sometime reading [Clipboard APIS](https://w3c.github.io/clipboard-apis/) docs)
-* Add the ability to Drag&Drop files. (mostly gonna use the `drop` event in JS)
+#### Paste in Images
+
+**(In progress)**
 * (1) Add Code-Block support in the `textProcessor` function.
 * (2) Add the support to select the whole block on triple click. (Idea inspired from [Advent of Code](https://xzansite.cyclic.app/blog/Programming/Events/Advent%20of%20Code%202022))
-* Play a bit with the realtime API that pocketBase offers. (More docs reading)
+* Play abit with the realtime API that pocketBase offers. (More docs reading)
+
+
+**Done**
+* Add the ability to Drag&Drop files. (mostly gonna use the `drop` event in JS)<br>
+Did use the `drop` event, but learned along the way that I've to `preventDefault()` the events of `dragover` & `dragleave`.
+
+
+**(low priority)**
+* Add the ability to paste in images. (Spending sometime reading [Clipboard APIS](https://w3c.github.io/clipboard-apis/) docs)<br>
+Firefox doesn't allow webpages to access clipboard data via JS, and my daily driver is Firefox. Going to work on this later for Chrome, but currently, I'm focused more on the app productivity.
