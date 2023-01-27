@@ -12,8 +12,8 @@ const recordsSection = document.querySelector(".records")
 let token = "";
 async function getToken(updateUIBool){
 	const creds = {
-		"identity": "username",																							// <--- Change This
-		"password": "passowrd"																							// <--- Change This
+		"identity": "username",												// <--- Change This
+		"password": "passowrd"												// <--- Change This
 	}
 	token = await fetch(`http://${server}/api/collections/users/auth-with-password`, {
 		"method": "POST",
@@ -44,7 +44,7 @@ async function getRecords(){
 	updateUI(records.items, channel, true)
 }
 getToken(true)
-setInterval(() => {getToken(false)}, 290000)
+setInterval(() => {getToken(false)}, 290000) // Update token every 290 secs
 channelSelect.addEventListener("change", ()=>{getRecords()})
 
 
@@ -59,7 +59,8 @@ function updateUI(records, channel, newload){
 		let HTML = `<section class="record" id="${record.id}">`
 
 		if (record.text){
-			let textHTML = textProcessor(record.text)
+			let textHTML = specialCharsProcessor(record.text)
+			textHTML = urlsProcessor(textHTML)
 			HTML += `<span>${textHTML}</span>`
 		}
 		if (record.files){
@@ -81,7 +82,18 @@ function updateUI(records, channel, newload){
 		setTimeout(() => {recordsSection.scroll({ top: recordsSection.scrollHeight, behavior: 'smooth' })}, 100);
 	})
 }
-function textProcessor(text){
+function specialCharsProcessor(text){
+	const chars = [
+		["&", "&amp;"],
+		["<", "&lt;"],
+		[">", "&gt;"],
+	]
+	chars.forEach((char) => {
+		text = text.replaceAll(char[0], char[1])
+	})
+	return text
+}
+function urlsProcessor(text){
 	const linksRE = /(https?:\/\/[^\s]+)/gi
 	let matches = Array.from(text.matchAll(linksRE))
 	matches.forEach((match) => {			// Process links

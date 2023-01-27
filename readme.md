@@ -4,9 +4,9 @@ A self-host personal chat app that groups some basic features of Whatsapp and Di
 
 ### Usage
 
-The project is a custom built interface to visualize the data on top of [PocketBase](https://pocketbase.io/) project, So it needs to be installed first:
+The project is a custom built interface to visualize the data on top of [PocketBase](https://pocketbase.io/) project, So This needs to be installed first:
 
-1) Download the compiled project depending on your os from [here](https://github.com/pocketbase/pocketbase/releases) & place it in the project root directory.
+1) Download the compiled project depending on your OS from [here](https://github.com/pocketbase/pocketbase/releases) & place it in the project root directory.
 2) Run `pocketbase migrate` to apply data base migrations. A 'pb_data' folder will be created.
 3) Run `pocketbase serve` to start the server.
 4) OPTIONAL: you can append `--http=<ip_addr>:<port>` to serve the application on a custom IP address if you own it.
