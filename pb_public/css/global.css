@@ -147,6 +147,17 @@ a:is(*, :hover, :focus, :visited){
 	font-family: Roboto;
 	margin-bottom: 12px;
 	position: relative;
+	word-break: break-all;
+}
+.codeBlock{
+	width: 100%;
+	border-radius: 8px;
+	margin-top: 4px;
+	background: #14141A;
+	padding: 8px;
+	padding-left: 12px;
+	letter-spacing: 1.2px;
+	word-break: break-all;
 }
 .files{
 	margin-top: 8px;

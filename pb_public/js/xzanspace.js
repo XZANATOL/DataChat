@@ -87,6 +87,7 @@ function specialCharsProcessor(text){
 		["&", "&amp;"],
 		["<", "&lt;"],
 		[">", "&gt;"],
+		["\n", "<br>"],
 	]
 	chars.forEach((char) => {
 		text = text.replaceAll(char[0], char[1])
@@ -100,7 +101,32 @@ function urlsProcessor(text){
 		text = text.replace(match[1], `<a href="${match[1]}" target="_blank">${match[1]}</a>`)
 	})
 
-	text = text.replaceAll("\n", "<br>")	// Process newlines
+	return text
+}
+function codeProcessor(text){
+	const codeDelimiters = /```/
+	let matches = Array.from(text.matchAll(new RegExp(codeDelimiters, "g")))
+	if(matches){
+		if(matches.length%2 != 0){ // For uneven delimiters
+			matches.shift()
+		}
+		for(i of [...Array(matches.length).keys()]){
+			if(i%2==0){
+				text = text.replace(codeDelimiters, `<div class="codeBlock">`)
+			}else{
+				text = text.replace(codeDelimiters, `</div>`)
+			}
+		}
+
+		let correctorWrapper = document.createElement("div")
+		correctorWrapper.innerHTML = text
+		let corrector = correctorWrapper.querySelector(".codeBlock")
+		if (corrector && corrector.firstElementChild.tagName == "BR"){
+			// Removes first <br> element for better UI	
+			corrector.removeChild(corrector.firstElementChild)
+		}
+		return correctorWrapper.innerHTML
+	}
 	return text
 }
 function filesProcessor(collectionId, id, files) {
