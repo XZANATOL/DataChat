@@ -18,8 +18,6 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 
 ### To-Do
 
-#### Paste in Images
-
 **(In progress)**
 * (3) Add support for tab intendations. (Need this for python codes)
 * Play abit with the realtime API that pocketBase offers. (More docs reading)
@@ -35,4 +33,4 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 
 **(low priority)**
 * Add the ability to paste in images. (Spending sometime reading [Clipboard APIS](https://w3c.github.io/clipboard-apis/) docs)<br>
-Firefox doesn't allow webpages to access clipboard data via JS, and my daily driver is Firefox. Going to work on this later for Chrome, but currently, I'm focused more on the app productivity.
+Firefox doesn't allow webpages to access clipboard data via JS, and my daily driver is Firefox. Going to work on this later for Chrome, but currently, I'm more focused on the app productivity.

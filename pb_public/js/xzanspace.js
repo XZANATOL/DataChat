@@ -61,6 +61,7 @@ function updateUI(records, channel, newload){
 		if (record.text){
 			let textHTML = specialCharsProcessor(record.text)
 			textHTML = urlsProcessor(textHTML)
+			textHTML = codeProcessor(textHTML)
 			HTML += `<span>${textHTML}</span>`
 		}
 		if (record.files){
