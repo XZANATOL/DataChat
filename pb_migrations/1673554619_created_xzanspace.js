@@ -50,7 +50,7 @@ migrate((db) => {
     ],
     "listRule": "@request.method = \"GET\" && @request.auth.id != \"\"",
     "viewRule": null,
-    "createRule": "@request.method = \"POST\" && @request.auth.id != \"\"",
+    "createRule": "@request.method = \"POST\" && @request.auth.id != \"\" && (@request.data.text != \"\" || @request.data.files != \"\")",
     "updateRule": null,
     "deleteRule": "@request.method = \"DELETE\" && @request.auth.id != \"\"",
     "options": {}
