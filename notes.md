@@ -21,14 +21,16 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 #### Paste in Images
 
 **(In progress)**
-* (2) Add the support to select the whole block on triple click. (Idea inspired from [Advent of Code](https://xzansite.cyclic.app/blog/Programming/Events/Advent%20of%20Code%202022))
-* (3) Add support for tab intendations.
+* (3) Add support for tab intendations. (Need this for python codes)
 * Play abit with the realtime API that pocketBase offers. (More docs reading)
+* Add error handlers. (For connection establishment bugs while on mobile)
+* Make an icon for the app.
 
 
 **Done**
 * Add the ability to Drag&Drop files. (mostly gonna use the `drop` event in JS)
 * (1) Add Code-Block support in the `textProcessor` function. (Text analysis is one of the trickiest things one must deal with)
+* (2) Add the support to select the whole block on triple click. (Idea inspired from [Advent of Code](https://xzansite.cyclic.app/blog/Programming/Events/Advent%20of%20Code%202022))
 
 
 **(low priority)**

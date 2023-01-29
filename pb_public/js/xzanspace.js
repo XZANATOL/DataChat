@@ -253,6 +253,14 @@ textareaInput.addEventListener("focusout", () => {
 })
 
 
+document.addEventListener("click", (e) => {
+	if(e.target.classList.contains("codeBlock") && e.detail == 3){
+		let r = document.createRange()
+		r.selectNode(e.target)
+		window.getSelection().removeAllRanges() // Making sure nothing else is selected
+		window.getSelection().addRange(r)
+	}
+})
 document.addEventListener("dblclick", (e) =>{
 	if(e.target.classList.contains("record")){
 		deleteRecrod(e.target)
