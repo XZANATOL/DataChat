@@ -89,6 +89,7 @@ function specialCharsProcessor(text){
 		["<", "&lt;"],
 		[">", "&gt;"],
 		["\n", "<br>"],
+		["\t", "&emsp;"]
 	]
 	chars.forEach((char) => {
 		text = text.replaceAll(char[0], char[1])
@@ -267,6 +268,21 @@ document.addEventListener("dblclick", (e) =>{
 		deleteRecrod(e.target)
 	}
 })
+document.addEventListener("keydown", (e) => {
+	const element = document.activeElement
+	if(element.type == "textarea" && e.key === "Tab"){
+		e.preventDefault()
+		const cursorPosition = element.selectionStart
+		const cursorEndPosition = element.selectionEnd
+
+		element.value = element.value.substring(0, cursorPosition) +
+						"\t" +
+						element.value.substring(cursorEndPosition)
+		element.selectionStart = cursorPosition + 1
+		element.selectionEnd = cursorEndPosition + 1
+	}
+})
+
 
 // Desktop Options
 if(window.screen.width >= 1024){
