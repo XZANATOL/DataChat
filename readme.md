@@ -15,6 +15,10 @@ The project is a custom built interface to visualize the data on top of [PocketB
 7) Add whatever channels you want on line 2.
 8) You're all set! Head to the hosted IP address.
 
+<video width="800" height="400" controls>
+  <source src="./readme_dat/Demo.mp4" type="video/mp4">
+</video>
+
 ### How It Started
 
 If you're a nerd, you probably have some kind of a private chat that only includes you as a member where you quick save notes, links, pics, etc. (Mine are on Whatsapp & Discord)
