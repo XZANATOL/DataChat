@@ -42,10 +42,8 @@ a:is(*, :hover, :focus, :visited){
 	flex-direction: row;
 	align-items: end;
 
-	position: sticky;
-	bottom: 0;
-
 	position: relative;
+	bottom: 0;
 }
 .channel:is(:focus, *){
 	border: none;
