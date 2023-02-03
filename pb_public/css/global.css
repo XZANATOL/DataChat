@@ -44,6 +44,8 @@ a:is(*, :hover, :focus, :visited){
 
 	position: sticky;
 	bottom: 0;
+
+	position: relative;
 }
 .channel:is(:focus, *){
 	border: none;
@@ -99,6 +101,25 @@ a:is(*, :hover, :focus, :visited){
 }
 .icon-wrapper:hover{
 	background: #474748;
+}
+.sending{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	left: 45%;
+	right: 45%;
+	bottom: 120%;
+	z-index: 1;
+	
+	width: 10%;
+	height: 25px;
+	border-radius: 18px;
+	
+	background: #5B5B66;
+	color: #efefef;
+	opacity: 0.65;
 }
 
 .d-none{

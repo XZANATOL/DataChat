@@ -161,6 +161,8 @@ function fileInput(obj){
 	input.value = ""
 }
 function upload(){
+	const sendingNotification = document.querySelector(".sending")
+	sendingNotification.classList.toggle("d-none")
 	const channel = document.querySelector(".channel").value
 	const text = textareaInput.value
 	const filesInput = document.querySelector(".icon-wrapper").querySelector("input")
@@ -182,6 +184,7 @@ function upload(){
 	        }else{
 	        	updateUI([response], channel, false)
 	        }
+	        sendingNotification.classList.toggle("d-none")
 	    }
 	}
 	
@@ -217,6 +220,7 @@ function upload(){
 			        	updateUI([response], channel, false)
 			        }
 			    }
+			    sendingNotification.classList.toggle("d-none")
 			}
 			http_file.send(data)
 		})

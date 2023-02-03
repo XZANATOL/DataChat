@@ -27,13 +27,13 @@ For the cons:
 1) **Discord:** you need to be online to access your data.
 2) **Whatsapp:** you don't have the channels feature to organize your data which can makes alot of notes slip by if you're someone who frequently takes notes throughout the day.
 
-Having to deal with the cons, things tends to get a bit annoying. So I decided to build up the best of the two worlds. A chat app that has enables you to organize data, can be accessed offline and put it online (on a local network) whenever I want to, and for better flexibility, I have to be able to host it from mobile.
+Having to deal with the cons, things tends to get a bit annoying having to switch back and forth between both applications in addition to the place I'm taking notes from. So I decided to build up the best of the two worlds. A chat app that has enables you to organize data, can be accessed offline and put it online (on a local network) whenever I want to, and for better flexibility, I have to be able to host it from mobile.
 
 ### How It's Built
 
 In order to meet the requirments of real-time offline data, and portability. I needed a database to be hosted on a mobile, build a Rest-API for data transactions, and an interface to easier interact with the stack. First things first.
 
-After some researching, I ended up choosing the following stack to satisfy the needs of the project:
+After some researching, I ended up choosing the following stack to satisfy the project needs:
 * [UserLand](https://userland.tech/) for Linux virtualization on Android.
 * [PocketBase](https://pocketbase.io) a backend platform with a builtin database, JWT authentication, SDK, and a Restful API all packed into one single executable. To make it better, It's written in Go and directly compiled for ARM64.
 * A webpage with HTML-CSS-JS as an interface to make the files compact and portable. PocketBase allows for the host of static files besides its services if they're put in **pb_public** folder. [Docs](https://pocketbase.io/docs/)
@@ -50,5 +50,6 @@ As the project won't deal with user accounts or chatting rooms, so It will be si
 * Dark Theme.
 * Controls (channel select, text & files input, send button) at the bottom for quick access on mobile.
 * Double click a message to delete.
+* Triple click to select whole code blocks.
 * Ability to upload multiple files. (each file as a seperate message)
 * Keyboard shortcuts in Desktop mode. (Ctrl+Shift+F to upload a file, Ctrl+Shift+M to focus text input)
