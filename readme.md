@@ -15,9 +15,7 @@ The project is a custom built interface to visualize the data on top of [PocketB
 7) Add whatever channels you want on line 2.
 8) You're all set! Head to the hosted IP address.
 
-<video width="800" height="400" controls>
-  <source src="./readme_dat/Demo.mp4" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/64689436/216726096-5f57b234-673e-42b4-b4cf-3114913e2304.mp4
 
 ### How It Started
 
