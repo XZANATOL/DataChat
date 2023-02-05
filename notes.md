@@ -19,11 +19,11 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 ### To-Do
 
 **(In progress)**
-* Add support for playing videoes.
 * Play abit with the realtime API that pocketBase offers. (More docs reading)
 * Add error handlers. (For connection establishment bugs while on mobile)
 * Add HTTPs support?
 * Make an icon for the app.
+* Add support for playing audios. (Audio also supports .ogg files, Gonna need to add some smart logic to detect [audio](https://stackoverflow.com/questions/30604696/use-javascript-to-detect-if-an-mp4-video-has-a-sound-track) & [frames](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement) existence)
 
 
 **Done**
@@ -32,6 +32,7 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 * (2) Add the support to select the whole block on triple click. (Idea inspired from [Advent of Code](https://xzansite.cyclic.app/blog/Programming/Events/Advent%20of%20Code%202022))
 * (3) Add support for tab intendations. (Need this for python codes)
 * Add uploading animation for more responsive preview.
+* Add support for playing videoes.
 
 
 **(low priority)**

@@ -133,9 +133,18 @@ function codeProcessor(text){
 }
 function filesProcessor(collectionId, id, files) {
 	const imgsRE = /(\.jpg|\.jpeg|\.png|\.gif)$/ig
+	const vidsRE = /(\.mp4|\.webm|\.ogg)$/ig
 	const link = `http://${server}/api/files/${collectionId}/${id}/${files}`
 	let HTML;
-	if(files.search(imgsRE) == -1){
+
+
+	if(files.search(imgsRE) != -1){
+		HTML = `<img src="${link}" title="${files}" class="files_img">`
+	}else if (files.search(vidsRE) != -1){
+		HTML = `<video controls class="files_vid">
+	<source src=${link}>
+</video>`
+	}else{
 		HTML = `<a class="files" href="${link}" target="_blank">
 	<div class="files_svg">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -148,8 +157,6 @@ function filesProcessor(collectionId, id, files) {
 	</div>
 </a>
 `
-	}else{
-		HTML = `<img src="${link}" title="${files}" class="files_img">`
 	}
 
 	return HTML
