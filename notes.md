@@ -18,6 +18,8 @@ After implmenting the logic, I got caught in a refactor trap. SSE will trigger o
 
 I've added the logic for catching the triggers for now without updating the UI. I'm going to refactor the code so that the SSE handlers render the UI rather than waiting for the server response with a request succeded/failed. This part will only be responsible for showing error messages if exist.
 
+Also, I've written a [blog](https://xzansite.cyclic.app/blog/Programming/Web_Development/Real_Time_Communication_On_A_Low_Level_(SSE)) taking the approach I used to understand this real time API as an example.
+
 ### UX
 
 **Keyboard Shortcuts**<br>
