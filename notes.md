@@ -11,6 +11,13 @@ These are the common methods to send a HTTP request.
 
 PocketBase has 2 users tables. One for admins & the other is for auth users.
 
+### PocketBase Server Sent Events (SSE)
+
+**08-02-2023**
+After implmenting the logic, I got caught in a refactor trap. SSE will trigger on any create, change, or delete. This includes ones sent from the client session, making the logic of manually updating the UI on the server 20x response useless.
+
+I've added the logic for catching the triggers for now without updating the UI. I'm going to refactor the code so that the SSE handlers render the UI rather than waiting for the server response with a request succeded/failed. This part will only be responsible for showing error messages if exist.
+
 ### UX
 
 **Keyboard Shortcuts**<br>
@@ -19,7 +26,7 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 ### To-Do
 
 **(In progress)**
-* Play abit with the realtime API that pocketBase offers. (More docs reading)
+* Add SSE updates to render.
 * Add error handlers. (For connection establishment bugs while on mobile)
 * Add HTTPs support?
 * Make an icon for the app.
@@ -33,6 +40,7 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 * (3) Add support for tab intendations. (Need this for python codes)
 * Add uploading animation for more responsive preview.
 * Add support for playing videoes.
+* Play abit with the realtime API that pocketBase offers. (More docs reading)
 
 
 **(low priority)**

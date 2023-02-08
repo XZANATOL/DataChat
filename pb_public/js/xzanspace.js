@@ -23,9 +23,12 @@ async function getToken(updateUIBool){
 		"body": JSON.stringify(creds)
 	})
 	.then((response) => response.json())
+
 	if(updateUIBool){
 		getRecords()
 	}
+
+	initializeRealTime()
 }
 async function getRecords(){
 	const channel = document.querySelector(".channel").value
@@ -46,6 +49,37 @@ async function getRecords(){
 getToken(true)
 setInterval(() => {getToken(false)}, 290000) // Update token every 290 secs
 channelSelect.addEventListener("change", ()=>{getRecords()})
+
+
+function initializeRealTime(){
+	realTimeEndPoint = `http://${server}/api/realtime`
+    let realTimeHandler = new EventSource(realTimeEndPoint)
+
+    realTimeHandler.addEventListener("PB_CONNECT", async (event) => {
+        let id = JSON.parse(event.data).clientId
+
+        let body = {
+            	"clientId": id,
+            	"subscriptions": [collectionName]
+        	}
+        let res = await fetch(realTimeEndPoint, {
+                "method": "POST",
+                "headers": {
+                    "Authorization": token.token,
+                    'Content-Type': 'application/json'
+                },
+                "body": JSON.stringify(body)
+            })
+    })
+
+    realTimeHandler.onerror = (err) => {
+        console.log(err)
+    }
+
+    realTimeHandler.addEventListener("xzanspace", (event) => {
+        console.log(event)
+    })
+}
 
 
 const textareaInput = document.querySelector(".input-text")
@@ -136,7 +170,6 @@ function filesProcessor(collectionId, id, files) {
 	const vidsRE = /(\.mp4|\.webm|\.ogg)$/ig
 	const link = `http://${server}/api/files/${collectionId}/${id}/${files}`
 	let HTML;
-
 
 	if(files.search(imgsRE) != -1){
 		HTML = `<img src="${link}" title="${files}" class="files_img">`
