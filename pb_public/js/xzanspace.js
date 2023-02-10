@@ -35,7 +35,7 @@ async function getRecords(){
 	recordsSection.innerHTML = ""
 	recordsSection.classList.toggle("d-none")
 	loader.classList.toggle("d-none")
-	const url = `http://${server}/api/collections/${collectionName}/records?filter=(channel='${channel}')&perPage=1000`
+	const url = `http://${server}/api/collections/${collectionName}/records?filter=(channel='${channel}')&perPage=1000&sort=created`
 	const records = await fetch(url, {
 		"headers": {
 			"Authorization": token.token
