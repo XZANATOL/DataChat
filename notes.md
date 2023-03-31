@@ -28,7 +28,6 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 ### To-Do
 
 **(In progress)**
-* Add SSE updates to render.
 * Add error handlers. (For connection establishment bugs while on mobile)
 * Add HTTPs support?
 * Make an icon for the app.
@@ -43,9 +42,10 @@ Usually the keyboard shortcuts are only active on desktop devices. This can be a
 * Add uploading animation for more responsive preview.
 * Add support for playing videoes.
 * Play abit with the realtime API that pocketBase offers. (More docs reading)
+* Add SSE updates to render.
 
 
-**Delayed**
+**Posponted**
 * Add the ability to paste in images. (Spending sometime reading [Clipboard APIS](https://w3c.github.io/clipboard-apis/) docs)<br>
 ~~Firefox doesn't allow webpages to access clipboard data via JS, and my daily driver is Firefox. Going to work on this later for Chrome, but currently, I'm more focused on the app productivity.~~
 Relooking into this. [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) is only accessible over HTTPs only as indicated by the [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API). So we have to implment HTTPs first.

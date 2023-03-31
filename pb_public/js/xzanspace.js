@@ -77,7 +77,14 @@ function initializeRealTime(){
     }
 
     realTimeHandler.addEventListener("xzanspace", (event) => {
+        event = JSON.parse(event.data)
         console.log(event)
+
+        if (event.action == "create"){
+        	updateUI([event.record], event.record.channel, false)
+        }else if (event.action == "delete"){
+        	deleteRecord(event.record, false)	
+        }
     })
 }
 
@@ -202,7 +209,6 @@ function fileInput(obj){
 }
 function upload(){
 	const sendingNotification = document.querySelector(".sending")
-	sendingNotification.classList.toggle("d-none")
 	const channel = document.querySelector(".channel").value
 	const text = textareaInput.value
 	const filesInput = document.querySelector(".icon-wrapper").querySelector("input")
@@ -221,8 +227,6 @@ function upload(){
 	        let response = JSON.parse(http.responseText)
 	        if("code" in response){
 	        	console.log(response)
-	        }else{
-	        	updateUI([response], channel, false)
 	        }
 	        sendingNotification.classList.toggle("d-none")
 	    }
@@ -240,6 +244,7 @@ function upload(){
 	}
 
 	if(send){
+		sendingNotification.classList.toggle("d-none")
 		http.send(data)
 	}
 
@@ -256,35 +261,45 @@ function upload(){
 			        let response = JSON.parse(http_file.responseText)
 			        if("code" in response){
 			        	console.log(response)
-			        }else{
-			        	updateUI([response], channel, false)
 			        }
 			    }
-			    sendingNotification.classList.toggle("d-none")
 			}
 			http_file.send(data)
 		})
 	}
 	filesInput.value = ""
+
+	if (sendingNotification.classList.contains("d-none")){
+		sendingNotification.classList.toggle("d-none")
+	}
 }
 
 
-async function deleteRecrod(element){
-	const url = `http://${server}/api/collections/${collectionName}/records/${element.id}`
-	const res = await fetch(url, {
-		"method": "DELETE",
-		"headers": {
-			"Authorization": token.token
-		}
-	})
-	.then((response) => {
-		if(response.status != 204){
-			alert("Couldn't delete record!")
-		}else{
+async function deleteRecord(element, talkToServer){
+	if (talkToServer){
+		const url = `http://${server}/api/collections/${collectionName}/records/${element.id}`
+		const res = await fetch(url, {
+			"method": "DELETE",
+			"headers": {
+				"Authorization": token.token
+			}
+		})
+		.then((response) => {
+			if(response.status != 204){
+				alert("Couldn't delete record!")
+			}else{
+				element.remove()
+				alert("record deleted successfully!")
+			}
+		})
+	}else{
+		try{
+			element = document.querySelector(`#${element.id}`)
 			element.remove()
-			alert("record deleted successfully!")
+		}catch{
+
 		}
-	})
+	}
 }
 
 
@@ -309,7 +324,7 @@ document.addEventListener("click", (e) => {
 })
 document.addEventListener("dblclick", (e) =>{
 	if(e.target.classList.contains("record")){
-		deleteRecrod(e.target)
+		deleteRecord(e.target, true)
 	}
 })
 document.addEventListener("keydown", (e) => {
