@@ -27,8 +27,6 @@ async function getToken(updateUIBool){
 	if(updateUIBool){
 		getRecords()
 	}
-
-	initializeRealTime()
 }
 async function getRecords(){
 	const channel = document.querySelector(".channel").value
@@ -87,6 +85,7 @@ function initializeRealTime(){
         }
     })
 }
+initializeRealTime()
 
 
 const textareaInput = document.querySelector(".input-text")
