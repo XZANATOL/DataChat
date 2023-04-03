@@ -10,7 +10,7 @@ const recordsSection = document.querySelector(".records")
 
 
 let token = "";
-async function getToken(updateUIBool){
+async function getToken(updateUIBool, runRealTime){
 	const creds = {
 		"identity": "username",												// <--- Change This
 		"password": "passowrd"												// <--- Change This
@@ -26,6 +26,9 @@ async function getToken(updateUIBool){
 
 	if(updateUIBool){
 		getRecords()
+	}
+	if(runRealTime){
+		initializeRealTime()
 	}
 }
 async function getRecords(){
@@ -85,7 +88,6 @@ function initializeRealTime(){
         }
     })
 }
-initializeRealTime()
 
 
 const textareaInput = document.querySelector(".input-text")
